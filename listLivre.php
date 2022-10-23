@@ -36,10 +36,5 @@ $tousLesLivres = $prepexec->fetchAll();
         ?>
     </tbody>
 </table>
-
-
-
-
-
 </body>
 </html>
