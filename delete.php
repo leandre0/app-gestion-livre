@@ -2,7 +2,7 @@
 
 include('includes/database.inc.php');
 
-$prepexec=$db->prepare('SELECT * FROM `livre` INNER JOIN `auteur` ON livre.id_auteur = auteur.id_auteur');
+$prepexec=$db->prepare('SELECT * FROM `livre`');
 $prepexec->execute();
 $tousLesLivres = $prepexec->fetchAll();
 ?>
@@ -19,8 +19,7 @@ $tousLesLivres = $prepexec->fetchAll();
     </header>
 <table>
     <thead>
-        <th>Titre</th>
-        <th>Auteur</th>
+        <th>Quel livre souhaitez supprimer ?</th>
     </thead>
     <tbody>
         <?php
@@ -28,8 +27,7 @@ $tousLesLivres = $prepexec->fetchAll();
             ?>
             <tr>
                 <td><?php echo $livre['titre'] ?></td>
-                <td><?php echo $livre['nom'] ?></td>
-                <td><a href="listeAuteur.php">Voir</a><a href="delete.php?id=<?= $produit['id'] ?>">Supprimer</a></td>
+                <td><a href="listeAuteur.php"></a></td>
             </tr>
             <?php
         }

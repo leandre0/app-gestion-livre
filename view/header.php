@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <h1>Tous nos livres et leurs auteurs</h1>
+    <h1>La Bonne Bibliothèque</h1>
     <nav>
         <ul>
         <a href="index.php">Accueil</a><a href="listLivre.php">Livres et leurs auteurs</a><a href="alterValues.php">Edition</a><a href="addValues.php">Ajouts</a>

@@ -1,6 +1,11 @@
 <?php
-// Path: alterValues.php
-// Menu de modification de valeurs
+
+include('includes/database.inc.php');
+include_once 'view/header.php';
+
+$prepexec=$db->prepare('SELECT * FROM `livre` INNER JOIN `auteur` ON livre.id_auteur = auteur.id_auteur');
+$prepexec->execute();
+$tousLesLivres = $prepexec->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -14,16 +19,24 @@
 
 </head>
 <body>
-    <h1>alterValues</h1>
+    <h1>Vos modifications</h1>
+    <table>
     <nav>
         <ul>
-        <li><a href="index.php">Accueil</a></li>
-        <li><a href="listLivre.php">Livres et leurs auteurs</a></li>
-        <li><a href="alterValues.php">Edition</a></li>
-        <li><a href="addValues.php">Ajouts</a></li>
+        <?php
+        foreach($tousLesLivres as $livre){
+            ?>
+            <tr>
+                <td><?php echo $livre['titre'] ?></td>
+                <td><?php echo $livre['nom'] ?></td>
+                <td><a href="listeAuteur.php">Voir</a><a href="delete.php">Supprimer</a></td>
+            </tr>
+            <?php
+        }
+        ?>
         </ul>
     </nav>
-
+</table>
 
 </body>
 </html>
